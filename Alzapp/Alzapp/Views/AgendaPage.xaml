@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alzapp.Views.AgendaPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             xmlns:controls="clr-namespace:Alzapp.NControls"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <magic:GradientView VerticalOptions="FillAndExpand">
+            <magic:CssGradientSource>
+                <![CDATA[linear-gradient(41deg, rgba(107, 107, 107, 0.04) 0%, rgba(107, 107, 107, 0.04) 8%,rgba(31, 31, 31, 0.04) 8%, rgba(31, 31, 31, 0.04) 100%),linear-gradient(9deg, rgba(228, 228, 228, 0.04) 0%, rgba(228, 228, 228, 0.04) 62%,rgba(54, 54, 54, 0.04) 62%, rgba(54, 54, 54, 0.04) 100%),linear-gradient(124deg, rgba(18, 18, 18, 0.04) 0%, rgba(18, 18, 18, 0.04) 37%,rgba(233,233,233, 0.0392156862745098) 37%, rgba(233,233,233, 0.0392156862745098) 100%),linear-gradient(253deg, rgba(201, 201, 201, 0.04) 0%, rgba(201, 201, 201, 0.04) 55%,rgba(47, 47, 47, 0.04) 55%, rgba(47, 47, 47, 0.04) 100%),linear-gradient(270deg, rgba(172, 172, 172, 0.04) 0%, rgba(172, 172, 172, 0.04) 33%,rgba(26, 26, 26, 0.04) 33%, rgba(26, 26, 26, 0.04) 100%),linear-gradient(64deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 38%,rgba(87, 87, 87, 0.04) 38%, rgba(87, 87, 87, 0.04) 100%),linear-gradient(347deg, rgba(199, 199, 199, 0.04) 0%, rgba(199, 199, 199, 0.04) 69%,rgba(4, 4, 4, 0.04) 69%, rgba(4, 4, 4, 0.04) 100%),linear-gradient(313deg, rgba(36, 36, 36, 0.04) 0%, rgba(36, 36, 36, 0.04) 20%,rgba(91, 91, 91, 0.04) 20%, rgba(91, 91, 91, 0.04) 100%),linear-gradient(90deg, rgb(10,17,72),rgb(35, 148, 228))]]>
+            </magic:CssGradientSource>
+        </magic:GradientView>
+        
+        <StackLayout
+        	BindingContext="{Binding Agenda}"
+            Padding="5">
+            <Grid>
+                <StackLayout
+                        HeightRequest="30">
+                    <Frame CornerRadius="5"
+                                BackgroundColor="#101010"
+                                Padding="0,38,0,0"
+                                Opacity="0.6"
+                                HasShadow="False"
+                                Grid.Column="0"
+                                Grid.Row="0"  >
+
+                    </Frame>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                        HeightRequest="30"
+                        Margin="20,3,20,3">
+                    <ImageButton
+                	        Command="{Binding BackCommand}"
+                            Source="back.png">
+                    </ImageButton>
+                    <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                             HeightRequest="60">
+                        <Label Text="{Binding DiaSemana}"
+                            FontAttributes="Bold"
+                            FontSize="Title" 
+                            TextColor="White"/>
+                    </StackLayout>
+                    <Image Source="alzapp.png"/>
+
+                </StackLayout>
+            </Grid>
+            <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="*"/>
+                </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="auto"/>
+                    <RowDefinition Height = "auto"/>
+                </Grid.RowDefinitions>
+                
+                <Grid
+            Grid.Row="0"
+                    >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height ="160"/>
+                        <RowDefinition Height = "250"/>
+                    </Grid.RowDefinitions>
+                    <Grid
+                Grid.Row="0">
+                        <Grid.RowDefinitions>
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame CornerRadius="15"
+                       Margin="10"
+                   BackgroundColor="#101010"
+                       Opacity="0.6"
+                       HasShadow="False"
+                       Grid.Column="0"
+                       Grid.Row="0"  
+                       Padding="0"
+                       WidthRequest= "200"
+                       HeightRequest="170">
+
+                        </Frame>
+                        <StackLayout
+                    Padding="5"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                            <ImageButton
+                	        Command="{Binding MananaCommand}"
+                            BackgroundColor="{Binding HoyMananaColor}"
+                            
+                            CornerRadius="15"
+                        WidthRequest= "90"
+                        HeightRequest="90"
+                            Source="amanecer.png"
+                        Padding="10">
+                            </ImageButton>
+                            <Label
+                        HorizontalOptions="Center"  
+                        FontSize="Medium"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        Text="Mañana">
+
+                            </Label>
+                        </StackLayout>
+
+                        <Frame CornerRadius="15"
+                       Margin="10"
+                   BackgroundColor="#101010"
+                       Opacity="0.6"
+                       HasShadow="False"
+                       Grid.Column="1"
+                       Grid.Row="0"  
+                       Padding="10"
+                       WidthRequest= "200"
+                       HeightRequest="170">
+
+                        </Frame>
+                        <StackLayout
+                    Padding="5"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                        Grid.Column="1">
+                            <ImageButton
+                	        Command="{Binding TardeCommand}"
+                            BackgroundColor="{Binding HoyTardeColor}"
+                            
+                            CornerRadius="15"
+                        WidthRequest= "90"
+                        HeightRequest="90"
+                            Source="tarde.png"
+                            
+                        Padding="10">
+                            </ImageButton>
+                            <Label
+                        HorizontalOptions="Center"  
+                        FontSize="Medium"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        Text="Tarde">
+
+                            </Label>
+                        </StackLayout>
+
+                        <Frame CornerRadius="15"
+                       Margin="10"
+                   BackgroundColor="#101010"
+                       Opacity="0.6"
+                       HasShadow="False"
+                       Grid.Column="2"
+                       Grid.Row="0"  
+                       Padding="10"
+                       WidthRequest= "200"
+                       HeightRequest="170">
+
+                        </Frame>
+                        <StackLayout
+                    Padding="5"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                        Grid.Column="2">
+                            <ImageButton
+                	        Command="{Binding NocheCommand}"
+                            BackgroundColor="{Binding HoyNocheColor}"
+                            
+                            CornerRadius="15"
+                        WidthRequest= "90"
+                        HeightRequest="90"
+                            Source="noche.png"
+                        Padding="10">
+                            </ImageButton>
+                            <Label
+                        HorizontalOptions="Center"  
+                        FontSize="Medium"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        Text="Noche">
+
+                            </Label>
+                        </StackLayout>
+
+
+
+                    </Grid>
+                    <Frame 
+                    
+                    CornerRadius="15"
+                   BackgroundColor="#101010"
+                       Opacity="0.6"
+                       HasShadow="False"
+                       Grid.Column="0"
+                       Grid.Row="1"  
+                       Padding="10"
+                       WidthRequest= "200"
+                       HeightRequest="170">
+
+                    </Frame>
+
+                        <ListView
+                Grid.Row="1"
+            ItemsSource="{Binding Agendas}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Padding="20,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image                                	
+                                	            Source="dot.png"
+                                                
+                                                HeightRequest="20"
+                                                WidthRequest="20"
+                                                HorizontalOptions="CenterAndExpand">
+                                            </Image>
+                                            <Label
+                                                Padding="5"
+                                                Grid.Column="1"
+                                                VerticalOptions="Center"
+                                                 FontSize="Default"
+                                                 TextColor="White"
+                                                 FontAttributes="Bold"
+                                                 Text="{Binding Actividad}">
+                                            </Label>
+                                        </Grid>
+
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+
+                <Grid
+            Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height ="100"/>
+                        <RowDefinition Height = "40"/>
+                        <RowDefinition Height = "150"/>
+                    </Grid.RowDefinitions>
+                    <Grid
+                Grid.Row="0"
+                HorizontalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="120"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame CornerRadius="15"
+                       Margin="10"
+                   BackgroundColor="#201636"
+                       Opacity="0.6"
+                       HasShadow="False"
+                       Grid.Column="0"
+                       Grid.Row="0"  
+                       Padding="10"
+                       WidthRequest= "120"
+                       HeightRequest="120">
+
+                        </Frame>
+                        <StackLayout
+                    Padding="5"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+
+                            <Button
+                                Command="{Binding AyerCommand}"
+                                BackgroundColor="{Binding DiaAyerColor}"
+                                HorizontalOptions="Center"  
+                                FontSize="Small"
+                                CornerRadius="40"
+                                TextColor="#FFFFFF"
+                                FontAttributes="Bold"
+                                Text="{Binding DiaDeAyer}">
+
+                            </Button>
+                        </StackLayout>
+
+                        <Frame CornerRadius="15"
+                       Margin="10"
+                   BackgroundColor="#201636"
+                       Opacity="0.6"
+                       HasShadow="False"
+                       Grid.Column="1"
+                       Grid.Row="0"  
+                       Padding="10"
+                       WidthRequest= "120"
+                       HeightRequest="120">
+
+                        </Frame>
+                        <StackLayout
+                    Padding="5"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                        Grid.Column="1">
+                            
+                            <Button
+                                Command="{Binding Manana2Command}"
+                                BackgroundColor="{Binding DiaMananaColor}"
+                                HorizontalOptions="Center"  
+                                FontSize="Small"
+                                CornerRadius="40"
+                                TextColor="#FFFFFF"
+                                FontAttributes="Bold"
+                                Text="{Binding DiaDeManana}">
+
+                            </Button>
+                        </StackLayout>
+
+
+                    </Grid>
+                    <StackLayout 
+                Grid.Row="1"
+            Orientation="Horizontal"
+            HeightRequest="30"
+            HorizontalOptions="CenterAndExpand"
+            IsVisible="{Binding VisibleBotones}">
+                        <controls:GradientButton
+                BorderRadius="40"
+                GradientStyle="{Binding MananaColor}"
+                Text="Mañana"
+                WidthRequest="120"
+                HeightRequest="75"
+                Command="{Binding Manana3Command}"
+                IsVisible="{Binding VisibleMananaColor}">
+
+                        </controls:GradientButton>
+                        <controls:GradientButton
+                BorderRadius="40"
+                GradientStyle="{Binding Manana2Color}"
+                Text="Mañana"
+                WidthRequest="120"
+                HeightRequest="75"
+                Command="{Binding Manana3Command}"
+                IsVisible="{Binding VisibleManana2Color}">
+
+                        </controls:GradientButton>
+                        <controls:GradientButton
+                BorderRadius="40"
+                GradientStyle="{Binding TardeColor}"
+                Text="Tarde"
+                WidthRequest="120"
+                HeightRequest="75"
+                Command="{Binding Tarde2Command}"
+                IsVisible="{Binding VisibleTardeColor}">
+
+                        </controls:GradientButton>
+                        <controls:GradientButton
+                BorderRadius="40"
+                GradientStyle="{Binding Tarde2Color}"
+                Text="Tarde"
+                WidthRequest="120"
+                HeightRequest="75"
+                Command="{Binding Tarde2Command}"
+                IsVisible="{Binding VisibleTarde2Color}">
+
+                        </controls:GradientButton>
+                        <controls:GradientButton
+                BorderRadius="40"
+                GradientStyle="{Binding NocheColor}"
+                Text="Noche"
+                WidthRequest="120"
+                HeightRequest="75"
+                Command="{Binding Noche2Command}"
+                IsVisible="{Binding VisibleNocheColor}">
+
+                        </controls:GradientButton>
+                        <controls:GradientButton
+                BorderRadius="40"
+                GradientStyle="{Binding Noche2Color}"
+                Text="Noche"
+                WidthRequest="120"
+                HeightRequest="75"
+                Command="{Binding Noche2Command}"
+                IsVisible="{Binding VisibleNoche2Color}">
+
+                        </controls:GradientButton>
+
+
+                    </StackLayout>
+                    <Frame 
+                    IsVisible="{Binding VisibleBotones}"
+                    CornerRadius="15"
+                   BackgroundColor="#6a5acd"
+                       Opacity="0.4"
+                       HasShadow="False"
+                       Grid.Column="0"
+                       Grid.Row="2"  
+                       Padding="10"
+                       WidthRequest= "200"
+                       HeightRequest="170">
+
+                    </Frame>
+
+                        <ListView
+                Grid.Row="2"
+            ItemsSource="{Binding Agendas2}"
+            IsVisible="{Binding VisibleActividad2}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+
+                                        <Grid Padding="20,0,0,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image                                	
+                                	            Source="dot.png"
+                                                
+                                                HeightRequest="20"
+                                                WidthRequest="20"
+                                                HorizontalOptions="CenterAndExpand">
+                                            </Image>
+                                            <Label
+                                                Padding="5"
+                                                Grid.Column="1"
+                                                VerticalOptions="Center"
+                                                 FontSize="Default"
+                                                 TextColor="White"
+                                                 FontAttributes="Bold"
+                                                 Text="{Binding Actividad2}">
+                                            </Label>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                    
+
+            </Grid>
+            </Grid>
+            </ScrollView>
+        </StackLayout>
+    </Grid>
+
+
+
+</ContentPage>

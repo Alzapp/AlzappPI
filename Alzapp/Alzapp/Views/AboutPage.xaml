@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alzapp.Views.AboutPage"
+             xmlns:controls="clr-namespace:Alzapp.NControls"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             Title="About"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <magic:GradientView VerticalOptions="FillAndExpand">
+            <magic:CssGradientSource>
+                <![CDATA[linear-gradient(41deg, rgba(107, 107, 107, 0.04) 0%, 
+rgba(107, 107, 107, 0.04) 8%,rgba(31, 31, 31, 0.04) 8%, 
+rgba(31, 31, 31, 0.04) 100%)]]>
+            </magic:CssGradientSource>
+        </magic:GradientView>
+        <StackLayout>
+
+        </StackLayout>
+        
+    </Grid>
+</ContentPage>
+
+<!--Vista donde se van a ver los datos personales y la informacion actual de la App-->

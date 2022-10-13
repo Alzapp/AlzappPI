@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alzapp.Views.AgendaPruebaPage"
+             xmlns:tabs="clr-namespace:Sharpnado.Tabs;assembly=Sharpnado.Tabs"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:views="clr-namespace:Alzapp.Views">
+    <ContentPage.Resources>
+
+        <ResourceDictionary>
+
+            <Style x:Key="TabStyle" TargetType="tabs:UnderlinedTabItem">
+                <Setter Property="SelectedTabColor" Value="Black" />
+                <Setter Property="LabelSize" Value="14" />
+                <Setter Property="UnselectedLabelColor" Value="Gray" />
+            </Style>
+
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <Grid Padding="2"
+      ColumnSpacing="0"
+      RowSpacing="0">
+        <magic:GradientView VerticalOptions="FillAndExpand">
+            <magic:CssGradientSource>
+                <![CDATA[linear-gradient(41deg, rgba(107, 107, 107, 0.04) 0%, rgba(107, 107, 107, 0.04) 8%,rgba(31, 31, 31, 0.04) 8%, rgba(31, 31, 31, 0.04) 100%),linear-gradient(9deg, rgba(228, 228, 228, 0.04) 0%, rgba(228, 228, 228, 0.04) 62%,rgba(54, 54, 54, 0.04) 62%, rgba(54, 54, 54, 0.04) 100%),linear-gradient(124deg, rgba(18, 18, 18, 0.04) 0%, rgba(18, 18, 18, 0.04) 37%,rgba(233,233,233, 0.0392156862745098) 37%, rgba(233,233,233, 0.0392156862745098) 100%),linear-gradient(253deg, rgba(201, 201, 201, 0.04) 0%, rgba(201, 201, 201, 0.04) 55%,rgba(47, 47, 47, 0.04) 55%, rgba(47, 47, 47, 0.04) 100%),linear-gradient(270deg, rgba(172, 172, 172, 0.04) 0%, rgba(172, 172, 172, 0.04) 33%,rgba(26, 26, 26, 0.04) 33%, rgba(26, 26, 26, 0.04) 100%),linear-gradient(64deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 38%,rgba(87, 87, 87, 0.04) 38%, rgba(87, 87, 87, 0.04) 100%),linear-gradient(347deg, rgba(199, 199, 199, 0.04) 0%, rgba(199, 199, 199, 0.04) 69%,rgba(4, 4, 4, 0.04) 69%, rgba(4, 4, 4, 0.04) 100%),linear-gradient(313deg, rgba(36, 36, 36, 0.04) 0%, rgba(36, 36, 36, 0.04) 20%,rgba(91, 91, 91, 0.04) 20%, rgba(91, 91, 91, 0.04) 100%),linear-gradient(90deg, rgb(10,17,72),rgb(35, 148, 228))]]>
+            </magic:CssGradientSource>
+        </magic:GradientView>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+ 
+        
+        <tabs:ViewSwitcher x:Name="Switcher"
+                               Grid.Row="1"
+                               SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
+
+            
+
+        </tabs:ViewSwitcher>
+        
+        <tabs:TabHostView x:Name="TabHost"
+                      Grid.Row="4"
+                      Margin="-16,0"
+                      BackgroundColor="#272727"
+                      SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
+            <tabs:TabHostView.Tabs>
+                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="tab1" />
+                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="tab2" />
+                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="tab3" />
+            </tabs:TabHostView.Tabs>
+        </tabs:TabHostView>
+        
+        <tabs:TabHostView Grid.Row="0"
+                              SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}">
+
+            <tabs:TabHostView.Tabs>
+                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="Explore country" />
+                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="Compare countries" />
+                <tabs:UnderlinedTabItem Style="{StaticResource TabStyle}" Label="Dynamic Time Warping" />
+            </tabs:TabHostView.Tabs>
+
+        </tabs:TabHostView>
+
+        
+
+    </Grid>
+</ContentPage> 

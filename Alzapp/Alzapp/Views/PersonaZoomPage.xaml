@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alzapp.Views.PersonaZoomPage"
+             xmlns:cardview="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:proc="clr-namespace:PanCardView.Processors;assembly=PanCardView"
+             xmlns:sharpnado="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+         	 NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+    <Grid>
+        <magic:GradientView VerticalOptions="FillAndExpand">
+            <magic:CssGradientSource>
+                <![CDATA[linear-gradient(41deg, rgba(107, 107, 107, 0.04) 0%, rgba(107, 107, 107, 0.04) 8%,rgba(31, 31, 31, 0.04) 8%, rgba(31, 31, 31, 0.04) 100%),linear-gradient(9deg, rgba(228, 228, 228, 0.04) 0%, rgba(228, 228, 228, 0.04) 62%,rgba(54, 54, 54, 0.04) 62%, rgba(54, 54, 54, 0.04) 100%),linear-gradient(124deg, rgba(18, 18, 18, 0.04) 0%, rgba(18, 18, 18, 0.04) 37%,rgba(233,233,233, 0.0392156862745098) 37%, rgba(233,233,233, 0.0392156862745098) 100%),linear-gradient(253deg, rgba(201, 201, 201, 0.04) 0%, rgba(201, 201, 201, 0.04) 55%,rgba(47, 47, 47, 0.04) 55%, rgba(47, 47, 47, 0.04) 100%),linear-gradient(270deg, rgba(172, 172, 172, 0.04) 0%, rgba(172, 172, 172, 0.04) 33%,rgba(26, 26, 26, 0.04) 33%, rgba(26, 26, 26, 0.04) 100%),linear-gradient(64deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 38%,rgba(87, 87, 87, 0.04) 38%, rgba(87, 87, 87, 0.04) 100%),linear-gradient(347deg, rgba(199, 199, 199, 0.04) 0%, rgba(199, 199, 199, 0.04) 69%,rgba(4, 4, 4, 0.04) 69%, rgba(4, 4, 4, 0.04) 100%),linear-gradient(313deg, rgba(36, 36, 36, 0.04) 0%, rgba(36, 36, 36, 0.04) 20%,rgba(91, 91, 91, 0.04) 20%, rgba(91, 91, 91, 0.04) 100%),linear-gradient(90deg, rgb(10,17,72),rgb(35, 148, 228))]]>
+            </magic:CssGradientSource>
+        </magic:GradientView>
+        <StackLayout
+            Padding="5"
+        	BindingContext="{Binding PersonaZoom}">
+            
+            <Grid>
+                <StackLayout
+                     HeightRequest="30">
+                    <Frame CornerRadius="5"
+                                BackgroundColor="#101010"
+                                Padding="0,38,0,0"
+                                Opacity="0.6"
+                                HasShadow="False"
+                                Grid.Column="0"
+                                Grid.Row="0"  >
+
+                    </Frame>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                     HeightRequest="30"
+                     Margin="20,3,20,3">
+                    <ImageButton
+                	        Command="{Binding BackCommand}"
+                            Source="back.png">
+                    </ImageButton>
+                    <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                             HeightRequest="60">
+                            <Label Text="{Binding Persona.Nombre}"
+                            FontAttributes="Bold"
+                            FontSize="Title" 
+                            TextColor="White"/>
+                    </StackLayout>
+                    <Image Source="alzapp.png"/>
+
+                </StackLayout>
+            </Grid>
+            
+            <StackLayout
+            	Padding="10">
+                <cardview:CoverFlowView
+                    IsCyclical="True"
+                    PositionShiftValue="120"
+                    ItemsSource="{Binding PersonaList}"
+                    >
+                    <x:Arguments>
+                        <proc:CoverFlowProcessor ScaleFactor="0.75" OpacityFactor="0.25" />
+                    </x:Arguments>
+                    <cardview:CoverFlowView.ItemTemplate>
+                        <DataTemplate>
+
+                            <Grid
+                        Margin="40">
+                                <Frame
+                            CornerRadius="25"
+                            Padding="0"
+                            HasShadow="False"
+                                    BackgroundColor="Transparent">
+                                    <Image 
+                                        Source="{Binding Imagenes}"
+                                        HeightRequest="380"/>
+                                </Frame>
+                                
+                            </Grid>
+                        </DataTemplate>
+                    </cardview:CoverFlowView.ItemTemplate>
+                </cardview:CoverFlowView>
+                           
+                <Grid Padding="20,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="0"
+                    	Text="Nombre: "
+                        TextColor="DarkGray"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Label
+                    	Grid.Column="1"
+                    	Grid.Row="0"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        FontSize="Medium"
+                    	Text="{Binding Persona.Nombre}">
+                    </Label>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="1"
+                    	Text="Dirección: "
+                        TextColor="DarkGray"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Label
+                    	Grid.Column="1"
+                    	Grid.Row="1"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        TextColor="White"
+                    	Text="{Binding Persona.Domicilio}">
+                    </Label>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="2"
+                    	Text="Relación: "
+                        TextColor="DarkGray"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Label
+                    	Grid.Column="1"
+                    	Grid.Row="2"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        TextColor="White"
+                    	Text="{Binding Persona.Relacion}">
+                    </Label>
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="3"
+                    	Text="Celular: "
+                        TextColor="DarkGray"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Label
+                    	Grid.Column="1"
+                    	Grid.Row="3"
+                        FontAttributes="Bold"
+                        FontSize="Medium"
+                        TextColor="White"
+                    	Text="{Binding Persona.Celular}">
+                    </Label>
+                </Grid>
+
+                
+            </StackLayout>
+                <Grid
+                    VerticalOptions="EndAndExpand"
+                    Padding="0,0,0,30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    
+                    <Grid
+                     HeightRequest="90"
+                        WidthRequest="50"
+                        Padding="35,0"
+                        Grid.Column="0">
+                        <Frame CornerRadius="25"
+                                BackgroundColor="#101010"
+                                Opacity="0.6"
+                                HasShadow="False"
+                                Grid.Column="0"
+                                Grid.Row="0"  
+                               HeightRequest="40"
+                        WidthRequest="50">
+
+                        </Frame>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <ImageButton
+                    	        Command="{Binding LlamarCommand}"
+                                HorizontalOptions="Center"
+                    	        HeightRequest="50"
+                                Source="llamada.png"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                BackgroundColor="Transparent"
+                    	        IsEnabled="{Binding IsEnabled}"
+                                >
+                            </ImageButton>
+                            <Label
+                                FontAttributes="Bold"
+                                HorizontalOptions="Center"
+                                FontSize="Micro"
+                                Grid.Column="0"
+                                Grid.Row="1"
+                                TextColor="White"
+                    	        Text="Llamar">
+                            </Label>
+                        </Grid>
+                        
+
+                    </Grid>
+                    <Grid                        
+                        HeightRequest="80"
+                        WidthRequest="50"
+                        Padding="35,0"
+                        Grid.Column="1">
+                        <Frame CornerRadius="25"                               
+                                BackgroundColor="#101010"
+                                Opacity="0.6"
+                                HasShadow="False"
+                                Grid.Column="0"
+                                Grid.Row="0"  
+                               HeightRequest="40"
+                        WidthRequest="50">
+
+                        </Frame>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <ImageButton
+                    	        Command="{Binding UbicacionCommand}"
+                                HorizontalOptions="Center"
+                    	        HeightRequest="90"
+                                Source="pinGoogle.png"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                BackgroundColor="Transparent"
+                    	        IsEnabled="{Binding IsEnabled}"
+                                >
+                            </ImageButton>
+                            <Label
+                                FontAttributes="Bold"
+                                HorizontalOptions="Center"
+                                FontSize="Micro"
+                                Grid.Column="0"
+                                Grid.Row="1"
+                                TextColor="White"
+                    	        Text="Llevame">
+                            </Label>
+                        </Grid>
+
+                    </Grid>
+                    
+
+                </Grid>
+            </StackLayout>
+    </Grid>
+    </ContentPage.Content>
+</ContentPage>

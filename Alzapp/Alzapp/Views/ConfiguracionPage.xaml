@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alzapp.Views.ConfiguracionPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             NavigationPage.HasNavigationBar="False"
+             Title="Configuracion">
+
+    <Grid>
+        <magic:GradientView VerticalOptions="FillAndExpand">
+            <magic:CssGradientSource>
+                <![CDATA[linear-gradient(41deg, rgba(107, 107, 107, 0.04) 0%, rgba(107, 107, 107, 0.04) 8%,rgba(31, 31, 31, 0.04) 8%, rgba(31, 31, 31, 0.04) 100%),linear-gradient(9deg, rgba(228, 228, 228, 0.04) 0%, rgba(228, 228, 228, 0.04) 62%,rgba(54, 54, 54, 0.04) 62%, rgba(54, 54, 54, 0.04) 100%),linear-gradient(124deg, rgba(18, 18, 18, 0.04) 0%, rgba(18, 18, 18, 0.04) 37%,rgba(233, 233, 233, 0.04) 37%, rgba(233, 233, 233, 0.04) 100%),linear-gradient(253deg, rgba(201, 201, 201, 0.04) 0%, rgba(201, 201, 201, 0.04) 55%,rgba(47, 47, 47, 0.04) 55%, rgba(47, 47, 47, 0.04) 100%),linear-gradient(270deg, rgba(172, 172, 172, 0.04) 0%, rgba(172, 172, 172, 0.04) 33%,rgba(26, 26, 26, 0.04) 33%, rgba(26, 26, 26, 0.04) 100%),linear-gradient(64deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 38%,rgba(87, 87, 87, 0.04) 38%, rgba(87, 87, 87, 0.04) 100%),linear-gradient(347deg, rgba(199, 199, 199, 0.04) 0%, rgba(199, 199, 199, 0.04) 69%,rgba(4, 4, 4, 0.04) 69%, rgba(4, 4, 4, 0.04) 100%),linear-gradient(313deg, rgba(36, 36, 36, 0.04) 0%, rgba(36, 36, 36, 0.04) 20%,rgba(91, 91, 91, 0.04) 20%, rgba(91, 91, 91, 0.04) 100%),linear-gradient(90deg, rgb(72,10,10),rgba(228,35,35, 0.77))]]>
+            </magic:CssGradientSource>
+        </magic:GradientView>
+        <StackLayout
+            BindingContext="{Binding Configuracion}"
+            Padding="5">            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout>
+                    <Frame CornerRadius="5"
+                                BackgroundColor="#101010"
+                                Padding="0,38,0,0"
+                                Opacity="0.6"
+                                HasShadow="False"
+                                Grid.Column="0"
+                                Grid.Row="0"  >
+
+                    </Frame>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                        Margin="20,3,20,3">
+                    <ImageButton
+                	   Command="{Binding BackCommand}"
+                       Source="back.png"
+                        HeightRequest="30">
+                    </ImageButton>
+                    <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand">
+                        <Label Text="Configuración"
+                            FontAttributes="Bold"
+                            FontSize="Title" 
+                            TextColor="White"/>
+                    </StackLayout>
+                    <Image Source="alzapp.png"
+                           HeightRequest="30"/>
+
+                </StackLayout>
+            </Grid>
+
+            <Grid
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+                <Grid
+                    Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame CornerRadius="15"
+                       Margin="10"
+                   BackgroundColor="#101010"
+                       Opacity="0.6"
+                       HasShadow="False"
+                       Grid.Column="0"
+                       Grid.Row="0"  
+                       Padding="10"
+                       WidthRequest= "200"
+                       HeightRequest="170">
+
+                    </Frame>
+                    <StackLayout
+                    Padding="5"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                        <ImageButton
+                	        Command="{Binding PersonaCuidadorCommand}"
+                            BackgroundColor="#763636"
+                            
+                            CornerRadius="15"
+                        WidthRequest= "150"
+                        HeightRequest="120"
+                            Source="personasC.png"
+                        Padding="10">
+                        </ImageButton>
+                        <Label
+                        HorizontalOptions="Center"  
+                        FontSize="Medium"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        Text="Personas ">
+
+                        </Label>
+                    </StackLayout>                                      
+                    
+                    
+                    
+                    
+                    <Frame CornerRadius="15"
+                       Margin="10"
+                   BackgroundColor="#101010"
+                       HasShadow="False"
+                       Opacity="0.6"
+                       Grid.Column="1"
+                       Grid.Row="0"  
+                       Padding="10"
+                       WidthRequest= "200"
+                       HeightRequest="170">
+
+                    </Frame>
+                    <StackLayout
+                    Grid.Column="1"
+                    Grid.Row="0"  
+                    Padding="5"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                        <ImageButton
+                	        Command="{Binding MedicamentosCuidadorCommand}"
+                            BackgroundColor="#763636"
+                            CornerRadius="15"
+                        WidthRequest= "150"
+                        HeightRequest="120"
+                            Source="medicamentosC.png"
+                        Padding="10">
+                        </ImageButton>
+                        <Label
+                        HorizontalOptions="Center"  
+                        FontSize="Medium"
+                        FontAttributes="Bold"
+                        TextColor="#FFFFFF"
+                                Text="Medicamentos"
+                                >
+
+                        </Label>
+                    </StackLayout>
+                    
+
+                </Grid>
+                
+                
+                
+                
+                
+                <Grid
+                    Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame CornerRadius="15"
+                       Margin="10"
+                       Opacity="0.6"
+                       BackgroundColor="#101010"
+                       HasShadow="False"
+                       Grid.Column="0"
+                       Grid.Row="0"  
+                       Padding="10"
+                       WidthRequest= "200"
+                       HeightRequest="170">
+
+                    </Frame>
+                    <StackLayout
+                    Grid.Column="0"
+                    Grid.Row="0" 
+                    Padding="5"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                        <ImageButton
+                	        Command="{Binding AgendaCuidadorCommand}"
+                            BackgroundColor="#763636"
+                            CornerRadius="15"
+                            Source="agendaC.png"
+                        WidthRequest= "150"
+                        HeightRequest="120"
+                        Padding="10">
+                        </ImageButton>
+                        <Label
+                        HorizontalOptions="Center"  
+                        FontSize="Medium"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        Text="Agenda">
+
+                        </Label>
+                    </StackLayout>
+                    
+
+                    
+                    
+                    
+                    
+
+                    <Frame CornerRadius="15"
+                       Margin="10"
+                   BackgroundColor="#101010"
+                       Opacity="0.6"
+                       HasShadow="False"
+                       Grid.Column="1"
+                       Grid.Row="0"  
+                       Padding="10"
+                       WidthRequest= "200"
+                       HeightRequest="170">
+
+                    </Frame>
+                    <StackLayout
+                    Grid.Column="1"
+                       Grid.Row="0"  
+                    Padding="5"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                        <ImageButton
+                	        Command="{Binding FotoCuidadorCommand}"
+                            BackgroundColor="#763636"
+                            CornerRadius="15"
+                        WidthRequest= "150"
+                        HeightRequest="120"
+                            Source="recuerdosC.png"
+                        Padding="10">
+                        </ImageButton>
+                        <Label
+                        HorizontalOptions="Center"  
+                        TextColor="#FFFFFF"
+                        FontSize="Medium"
+                        FontAttributes="Bold"
+                                Text="Recuerdos"
+                                >
+
+                        </Label>
+                    </StackLayout>
+
+                    
+
+
+
+
+                </Grid>
+                <Grid
+                    Grid.Row="2">
+                    <Frame CornerRadius="15"
+                       Margin="10"
+                   BackgroundColor="#101010"
+                       Opacity="0.6"
+                       HasShadow="False"
+                       Padding="10"
+                       WidthRequest= "155"
+                       HeightRequest="170"
+                       HorizontalOptions="Center">
+
+                    </Frame>
+                    <StackLayout
+                    Padding="5"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                        <ImageButton
+                	        Command="{Binding SOSCuidadorCommand}"
+                            BackgroundColor="#763636"
+                            CornerRadius="15"
+                        WidthRequest= "150"
+                        HeightRequest="120"
+                            Source="sosC.png"
+                        Padding="10">
+                        </ImageButton>
+                        <Label
+                        HorizontalOptions="Center"  
+                        FontSize="Medium"
+                        FontAttributes="Bold"   
+                        TextColor="#FFFFFF"
+                        Text="S.O.S">
+
+                        </Label>
+                    </StackLayout>
+                   
+
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </Grid>
+</ContentPage>
+
+<!-- ConfiguracionPage Vista donde accede el Cuidador al ingresar correctamente la contraseña-->

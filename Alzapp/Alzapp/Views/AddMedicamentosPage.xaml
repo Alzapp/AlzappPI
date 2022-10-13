@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alzapp.Views.AddMedicamentosPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:controls="clr-namespace:Alzapp.NControls"
+         	 NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <magic:GradientView VerticalOptions="FillAndExpand">
+                <magic:CssGradientSource>
+                    <![CDATA[linear-gradient(41deg, rgba(107, 107, 107, 0.04) 0%, rgba(107, 107, 107, 0.04) 8%,rgba(31, 31, 31, 0.04) 8%, rgba(31, 31, 31, 0.04) 100%),linear-gradient(9deg, rgba(228, 228, 228, 0.04) 0%, rgba(228, 228, 228, 0.04) 62%,rgba(54, 54, 54, 0.04) 62%, rgba(54, 54, 54, 0.04) 100%),linear-gradient(124deg, rgba(18, 18, 18, 0.04) 0%, rgba(18, 18, 18, 0.04) 37%,rgba(233, 233, 233, 0.04) 37%, rgba(233, 233, 233, 0.04) 100%),linear-gradient(253deg, rgba(201, 201, 201, 0.04) 0%, rgba(201, 201, 201, 0.04) 55%,rgba(47, 47, 47, 0.04) 55%, rgba(47, 47, 47, 0.04) 100%),linear-gradient(270deg, rgba(172, 172, 172, 0.04) 0%, rgba(172, 172, 172, 0.04) 33%,rgba(26, 26, 26, 0.04) 33%, rgba(26, 26, 26, 0.04) 100%),linear-gradient(64deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 38%,rgba(87, 87, 87, 0.04) 38%, rgba(87, 87, 87, 0.04) 100%),linear-gradient(347deg, rgba(199, 199, 199, 0.04) 0%, rgba(199, 199, 199, 0.04) 69%,rgba(4, 4, 4, 0.04) 69%, rgba(4, 4, 4, 0.04) 100%),linear-gradient(313deg, rgba(36, 36, 36, 0.04) 0%, rgba(36, 36, 36, 0.04) 20%,rgba(91, 91, 91, 0.04) 20%, rgba(91, 91, 91, 0.04) 100%),linear-gradient(90deg, rgb(72,10,10),rgba(228,35,35, 0.77))]]>
+                </magic:CssGradientSource>
+            </magic:GradientView>
+            <StackLayout
+                BindingContext="{Binding AddMedicamentos}"
+                Padding="5">
+                <Grid>
+                    <StackLayout
+                        HeightRequest="30">
+                        <Frame CornerRadius="5"
+                                BackgroundColor="#101010"
+                                Padding="0,38,0,0"
+                                Opacity="0.6"
+                                HasShadow="False"
+                                Grid.Column="0"
+                                Grid.Row="0"  >
+
+                        </Frame>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                        HeightRequest="30"
+                        Margin="20,3,20,3">
+                        <ImageButton
+                	        Command="{Binding BackCommand}"
+                            Source="back.png">
+                        </ImageButton>
+                        <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                             HeightRequest="60">
+                            <Label Text="Agregar Medicamento"
+                            FontAttributes="Bold"
+                            FontSize="Title" 
+                            TextColor="White"/>
+                        </StackLayout>
+                        <Image Source="alzapp.png"/>
+
+                    </StackLayout>
+                </Grid>
+                <Grid Padding="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label 
+                        Text="Selecciona el Dia" 
+                        Grid.Column="0"	
+                        Grid.Row="0" 
+                        HorizontalOptions="StartAndExpand" 
+                        VerticalOptions="Center"
+                        TextColor="White">                        
+                    </Label>
+                    <DatePicker  
+                        TextColor="White"
+                        Format="d" 
+                        Grid.Column="1" 
+                        Grid.Row="0" 
+                        Date="{Binding DatePicker}">
+                    </DatePicker>
+
+
+                    <Label 
+                        TextColor="White"
+                        Text="Selecciona la Hora" 
+                        Grid.Column="0" 
+                        Grid.Row="1" 
+                        HorizontalOptions="StartAndExpand" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <TimePicker  
+                        TextColor="White"
+                        Format="t" 
+                        Grid.Column="1" 
+                        Grid.Row="1" 
+                        Time="{Binding TimePicker}">
+                    </TimePicker>
+
+                    <Label 
+                        Text="Titulo" 
+                        Grid.Column="0" 
+                        Grid.Row="2"
+                        TextColor="White"
+                        HorizontalOptions="StartAndExpand" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry  
+                        TextColor="White"
+                        PlaceholderColor="DarkGray"
+                        Placeholder="Ingrese un Titulo..." 
+                        Grid.Column="1" 
+                        Grid.Row="2" 
+                        Text="{Binding Titulo}">
+                    </Entry>
+
+
+                    <Label 
+                        Text="Mensaje" 
+                        Grid.Column="0" 
+                        TextColor="White"
+                        Grid.Row="3" 
+                        HorizontalOptions="StartAndExpand" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry  
+                        TextColor="White"
+                        PlaceholderColor="DarkGray"
+                        Placeholder="Ingrese un Mensaje..." 
+                        Grid.Column="1" 
+                        Grid.Row="3" 
+                        Text="{Binding Mensaje}">
+                    </Entry>
+
+                    <Label 
+                        TextColor="White"                        
+                        Text="Tipo de Unidad" 
+                        Grid.Column="0" 
+                        Grid.Row="4" 
+                        HorizontalOptions="StartAndExpand" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <Picker 
+                        
+                        x:Name="picker" 
+                        Grid.Column="1" 
+                        Grid.Row="4" 
+                        Title="Seleccione la Unidad" 
+                        TitleColor="Cyan"
+                        TextColor="White"
+                        SelectedItem="{Binding Unidad}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Aerosol</x:String>
+                                <x:String>Ampolla</x:String>
+                                <x:String>Capsula</x:String>
+                                <x:String>Comprimido</x:String>
+                                <x:String>Comprimido Vaginal</x:String>
+                                <x:String>Cucharada</x:String>
+                                <x:String>Cucharadita</x:String>
+                                <x:String>Comprimido Vaginal</x:String>
+                                <x:String>Gotas</x:String>
+                                <x:String>Gramos</x:String>
+                                <x:String>Inyeccion</x:String>
+                                <x:String>Mililitro</x:String>
+                                <x:String>Miligramo</x:String>
+                                <x:String>Ovulo</x:String>
+                                <x:String>Parche</x:String>
+                                <x:String>Pieza</x:String>
+                                <x:String>Unidad</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label 
+                        TextColor="White"
+                        Text="Cantidad" 
+                        Grid.Column="0" 
+                        Grid.Row="5" 
+                        HorizontalOptions="StartAndExpand" 
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry  
+                        PlaceholderColor="DarkGray"
+                        TextColor="White"
+                        Placeholder="Ingrese la Cantidad..." 
+                        Grid.Column="1" 
+                        Grid.Row="5"
+                        Text="{Binding Cantidad}">
+
+                    </Entry>
+                </Grid>
+                <Image
+	                HeightRequest="100"
+	                Source="{Binding ImageSource}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label
+                	FontSize="Micro"
+                	HorizontalOptions="Center"
+                	Text="Coloque Foto del Medicamento"
+                    TextColor="White">
+                </Label>
+
+                
+                <controls:GradientButton
+                        Padding="40,0"
+                        BorderRadius="40"
+                        GradientStyle="{Binding SaveColor}"
+                        Text="Guardar"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="120"
+                        HeightRequest="50"
+                        Command="{Binding SaveCommand}">
+                </controls:GradientButton>
+            </StackLayout>
+
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alzapp.Views.InfanciaPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <magic:GradientView VerticalOptions="FillAndExpand">
+            <magic:CssGradientSource>
+                <![CDATA[linear-gradient(41deg, rgba(107, 107, 107, 0.04) 0%, rgba(107, 107, 107, 0.04) 8%,rgba(31, 31, 31, 0.04) 8%, rgba(31, 31, 31, 0.04) 100%),linear-gradient(9deg, rgba(228, 228, 228, 0.04) 0%, rgba(228, 228, 228, 0.04) 62%,rgba(54, 54, 54, 0.04) 62%, rgba(54, 54, 54, 0.04) 100%),linear-gradient(124deg, rgba(18, 18, 18, 0.04) 0%, rgba(18, 18, 18, 0.04) 37%,rgba(233,233,233, 0.0392156862745098) 37%, rgba(233,233,233, 0.0392156862745098) 100%),linear-gradient(253deg, rgba(201, 201, 201, 0.04) 0%, rgba(201, 201, 201, 0.04) 55%,rgba(47, 47, 47, 0.04) 55%, rgba(47, 47, 47, 0.04) 100%),linear-gradient(270deg, rgba(172, 172, 172, 0.04) 0%, rgba(172, 172, 172, 0.04) 33%,rgba(26, 26, 26, 0.04) 33%, rgba(26, 26, 26, 0.04) 100%),linear-gradient(64deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 38%,rgba(87, 87, 87, 0.04) 38%, rgba(87, 87, 87, 0.04) 100%),linear-gradient(347deg, rgba(199, 199, 199, 0.04) 0%, rgba(199, 199, 199, 0.04) 69%,rgba(4, 4, 4, 0.04) 69%, rgba(4, 4, 4, 0.04) 100%),linear-gradient(313deg, rgba(36, 36, 36, 0.04) 0%, rgba(36, 36, 36, 0.04) 20%,rgba(91, 91, 91, 0.04) 20%, rgba(91, 91, 91, 0.04) 100%),linear-gradient(90deg, rgb(10,17,72),rgb(35, 148, 228))]]>
+            </magic:CssGradientSource>
+        </magic:GradientView>
+        <StackLayout
+        	BindingContext="{Binding Infancia}"
+        	Padding="5">
+            <Grid>
+                <StackLayout
+                        HeightRequest="40">
+                    <Frame CornerRadius="5"
+                                BackgroundColor="#101010"
+                                Padding="0,38,0,0"
+                                Opacity="0.6"
+                                HasShadow="False"
+                                Grid.Column="0"
+                                Grid.Row="0"  >
+
+                    </Frame>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                        HeightRequest="30"
+                        Margin="20,3,20,3">
+                    <ImageButton
+                	        Command="{Binding BackCommand}"
+                            Source="back.png">
+                    </ImageButton>
+                    <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                             HeightRequest="60">
+                        <Label Text="Infancia"
+                            FontAttributes="Bold"
+                            FontSize="Title" 
+                            TextColor="White"/>
+                    </StackLayout>
+                    <Image Source="alzapp.png"/>
+
+                </StackLayout>
+            </Grid>
+            <RefreshView
+                IsRefreshing="{Binding IsRefreshing}"                
+                Command="{Binding RefreshCommand}">
+            <ListView
+                IsRefreshing="{Binding IsRefreshing}"
+            	HasUnevenRows="True"
+            	ItemsSource="{Binding Fotos}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Frame CornerRadius="15"
+                                           Margin="10"
+                                           BackgroundColor="#101010"
+                                           Opacity="0.20"
+                                           HasShadow="False"
+                                           Grid.Column="0"
+                                           Grid.Row="0"  
+                                           Padding="10"
+                                           WidthRequest= "200"
+                                           HeightRequest="170">
+
+                                </Frame>
+                                <Grid
+                                Padding="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+
+                                    </Grid.RowDefinitions>
+
+                                    <StackLayout
+                                	Grid.Column="0"
+                                	VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                        Padding="10">
+                                        <Image                                	
+                                	    Source="{Binding ImageUrl}"
+                                            
+                                        HeightRequest="480"
+                                        WidthRequest="500"
+                                        HorizontalOptions="CenterAndExpand">
+
+                                        </Image>
+                                        <Label                                        
+                                    	FontAttributes="Bold"
+                                        Padding="10,0"
+                                    	FontSize="Medium"
+                                    	Text="{Binding Name}"
+                                    	TextColor="White"
+                                        HorizontalOptions="CenterAndExpand">
+                                        </Label>
+                                    </StackLayout>
+
+                                </Grid>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </RefreshView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

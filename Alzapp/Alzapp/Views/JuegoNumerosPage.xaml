@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alzapp.Views.JuegoNumerosPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+         	 NavigationPage.HasNavigationBar="False"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:controls="clr-namespace:Alzapp.NControls">
+    <ContentPage.Content>
+        <Grid>
+        <magic:GradientView VerticalOptions="FillAndExpand">
+            <magic:CssGradientSource>
+                <![CDATA[linear-gradient(41deg, rgba(107, 107, 107, 0.04) 0%, rgba(107, 107, 107, 0.04) 8%,rgba(31, 31, 31, 0.04) 8%, rgba(31, 31, 31, 0.04) 100%),linear-gradient(9deg, rgba(228, 228, 228, 0.04) 0%, rgba(228, 228, 228, 0.04) 62%,rgba(54, 54, 54, 0.04) 62%, rgba(54, 54, 54, 0.04) 100%),linear-gradient(124deg, rgba(18, 18, 18, 0.04) 0%, rgba(18, 18, 18, 0.04) 37%,rgba(233,233,233, 0.0392156862745098) 37%, rgba(233,233,233, 0.0392156862745098) 100%),linear-gradient(253deg, rgba(201, 201, 201, 0.04) 0%, rgba(201, 201, 201, 0.04) 55%,rgba(47, 47, 47, 0.04) 55%, rgba(47, 47, 47, 0.04) 100%),linear-gradient(270deg, rgba(172, 172, 172, 0.04) 0%, rgba(172, 172, 172, 0.04) 33%,rgba(26, 26, 26, 0.04) 33%, rgba(26, 26, 26, 0.04) 100%),linear-gradient(64deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 38%,rgba(87, 87, 87, 0.04) 38%, rgba(87, 87, 87, 0.04) 100%),linear-gradient(347deg, rgba(199, 199, 199, 0.04) 0%, rgba(199, 199, 199, 0.04) 69%,rgba(4, 4, 4, 0.04) 69%, rgba(4, 4, 4, 0.04) 100%),linear-gradient(313deg, rgba(36, 36, 36, 0.04) 0%, rgba(36, 36, 36, 0.04) 20%,rgba(91, 91, 91, 0.04) 20%, rgba(91, 91, 91, 0.04) 100%),linear-gradient(90deg, rgb(10,17,72),rgb(35, 148, 228))]]>
+            </magic:CssGradientSource>
+        </magic:GradientView>
+        <StackLayout
+        	BindingContext="{Binding JuegoNumeros}"
+            Padding="5">
+                <Grid>
+                    <StackLayout
+                     HeightRequest="30">
+                        <Frame CornerRadius="5"
+                                BackgroundColor="#101010"
+                                Padding="0,38,0,0"
+                                Opacity="0.6"
+                                HasShadow="False"
+                                Grid.Column="0"
+                                Grid.Row="0"  >
+
+                        </Frame>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                     HeightRequest="30"
+                     Margin="20,3,20,3">
+                        <ImageButton
+                	        Command="{Binding BackCommand}"
+                            Source="back.png">
+                        </ImageButton>
+                        <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                             HeightRequest="60">
+                            <Label Text="FÁCIL"
+                            FontAttributes="Bold"
+                            FontSize="Title" 
+                            TextColor="White"/>
+                        </StackLayout>
+                        <Image Source="alzapp.png"/>
+
+                    </StackLayout>
+                </Grid>
+
+                <StackLayout
+                Padding="10"
+                    VerticalOptions="CenterAndExpand">
+                <Grid
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton
+                        WidthRequest= "95"
+                        HeightRequest="95"
+                        Source="{Binding Boton0}"
+                        BackgroundColor="#162336"
+                        Grid.Column="0"
+                        Grid.Row="0"             
+                        IsEnabled="{Binding IsEnabled0}"
+                        Command="{Binding ComprobarCommand0}">
+
+                    </ImageButton>
+                    <ImageButton
+                        WidthRequest= "95"
+                        HeightRequest="95"
+                        BackgroundColor="#162336"
+                        Source="{Binding Boton1}"
+                        Grid.Column="0"
+                        Grid.Row="1"        
+                        IsEnabled="{Binding IsEnabled1}"
+                        Command="{Binding ComprobarCommand1}"
+                        >
+                    </ImageButton>
+                    <ImageButton
+                        WidthRequest= "95"
+                        HeightRequest="95"
+                        BackgroundColor="#162336"
+                        Source="{Binding Boton2}"
+                        Grid.Column="1"
+                        Grid.Row="0"            
+                        IsEnabled="{Binding IsEnabled2}"
+                        Command="{Binding ComprobarCommand2}"
+                        >
+                    </ImageButton>
+                    <ImageButton
+                        WidthRequest= "95"
+                        HeightRequest="95"
+                        BackgroundColor="#162336"
+                        Source="{Binding Boton3}"
+                        Grid.Column="1"
+                        Grid.Row="1"             
+                        IsEnabled="{Binding IsEnabled3}"
+                        Command="{Binding ComprobarCommand3}"
+                        >
+                    </ImageButton>
+                </Grid>
+                <StackLayout
+                    Padding="20,40"
+                    HorizontalOptions="Start"
+                    >
+                    <StackLayout
+                        Orientation="Horizontal"
+                        >
+                        <Label
+                	        FontSize="Medium"
+                            TextColor="Wheat"
+                            
+                	        Text="Aciertos: ">
+                        </Label>
+                        <Label
+                	        FontSize="Medium"
+                            TextColor="White"
+                	        HorizontalOptions="Center"
+                	        Text="{Binding Aciertos}">
+                        </Label>
+
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Label
+                	        FontSize="Medium"
+                	        HorizontalOptions="Center"
+                            TextColor="Wheat"
+                	        Text="Puntuación: ">
+                        </Label>
+                        <Label
+                	        FontSize="Medium"
+                	        HorizontalOptions="Center"
+                            TextColor="White"
+                	        Text="{Binding Puntuacion}">
+                        </Label>
+
+                    </StackLayout>                      
+
+
+
+                    </StackLayout>
+                    <Label
+                            
+                        VerticalOptions="CenterAndExpand"
+                	        FontSize="Large"
+                            FontAttributes="Bold"
+                	        HorizontalOptions="CenterAndExpand"
+                            TextColor="White"
+                	        Text="{Binding Ganador}">
+                    </Label>
+
+                </StackLayout>
+                <controls:GradientButton
+				    BorderRadius="40"
+                    Padding="60,5"
+				    GradientStyle="{Binding ColorReiniciar}"
+				    Text="REINICIAR"                    
+				    WidthRequest="100"
+				    HeightRequest="60"
+				    Command="{Binding ReiniciarCommand}">
+
+                </controls:GradientButton>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

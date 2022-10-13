@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alzapp.Views.MedicamentosPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             NavigationPage.HasNavigationBar="False">
+
+        <Grid>
+            <magic:GradientView VerticalOptions="FillAndExpand">
+                <magic:CssGradientSource>
+                    <![CDATA[linear-gradient(41deg, rgba(107, 107, 107, 0.04) 0%, rgba(107, 107, 107, 0.04) 8%,rgba(31, 31, 31, 0.04) 8%, rgba(31, 31, 31, 0.04) 100%),linear-gradient(9deg, rgba(228, 228, 228, 0.04) 0%, rgba(228, 228, 228, 0.04) 62%,rgba(54, 54, 54, 0.04) 62%, rgba(54, 54, 54, 0.04) 100%),linear-gradient(124deg, rgba(18, 18, 18, 0.04) 0%, rgba(18, 18, 18, 0.04) 37%,rgba(233,233,233, 0.0392156862745098) 37%, rgba(233,233,233, 0.0392156862745098) 100%),linear-gradient(253deg, rgba(201, 201, 201, 0.04) 0%, rgba(201, 201, 201, 0.04) 55%,rgba(47, 47, 47, 0.04) 55%, rgba(47, 47, 47, 0.04) 100%),linear-gradient(270deg, rgba(172, 172, 172, 0.04) 0%, rgba(172, 172, 172, 0.04) 33%,rgba(26, 26, 26, 0.04) 33%, rgba(26, 26, 26, 0.04) 100%),linear-gradient(64deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 38%,rgba(87, 87, 87, 0.04) 38%, rgba(87, 87, 87, 0.04) 100%),linear-gradient(347deg, rgba(199, 199, 199, 0.04) 0%, rgba(199, 199, 199, 0.04) 69%,rgba(4, 4, 4, 0.04) 69%, rgba(4, 4, 4, 0.04) 100%),linear-gradient(313deg, rgba(36, 36, 36, 0.04) 0%, rgba(36, 36, 36, 0.04) 20%,rgba(91, 91, 91, 0.04) 20%, rgba(91, 91, 91, 0.04) 100%),linear-gradient(90deg, rgb(10,17,72),rgb(35, 148, 228))]]>
+                </magic:CssGradientSource>
+            </magic:GradientView>
+            <StackLayout
+        	BindingContext="{Binding Medicamentos}"
+        	Padding="5">
+                <Grid>
+                    <StackLayout
+                     HeightRequest="30">
+                        <Frame CornerRadius="5"
+                                BackgroundColor="#101010"
+                                Padding="0,38,0,0"
+                                Opacity="0.6"
+                                HasShadow="False"
+                                Grid.Column="0"
+                                Grid.Row="0"  >
+
+                        </Frame>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                     HeightRequest="30"
+                     Margin="20,3,20,3">
+                        <ImageButton
+                	        Command="{Binding BackCommand}"
+                            Source="back.png">
+                        </ImageButton>
+                        <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                             HeightRequest="60">
+                            <Label Text="Medicamentos de Hoy"
+                            FontAttributes="Bold"
+                            FontSize="Title" 
+                            TextColor="White"/>
+                        </StackLayout>
+                        <Image Source="alzapp.png"/>
+
+                    </StackLayout>
+                </Grid>
+                <RefreshView
+                IsRefreshing="{Binding IsRefreshing}"                
+                Command="{Binding RefreshCommand}">
+                <ListView
+                HasUnevenRows="True"
+                ItemsSource="{Binding Medicamentoss}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Frame CornerRadius="15"
+                                           Margin="10"
+                                           BackgroundColor="#101010"
+                                           Opacity="0.20"
+                                           HasShadow="False"
+                                           Grid.Column="0"
+                                           Grid.Row="0"  
+                                           Padding="10"
+                                           WidthRequest= "200"
+                                           HeightRequest="170">
+
+                                    </Frame>
+
+                                <Grid
+                                    Padding="10">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectMedicamentoCommand}"/>
+                                    </Grid.GestureRecognizers>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                        <StackLayout
+                                	    Grid.Column="0"
+                                	    VerticalOptions="CenterAndExpand"
+                                        Padding="30,0,0,0">
+                                            <Image                                	
+                                	        Source="{Binding ImageUrl}"
+                                            HeightRequest="150"                                            
+                                            HorizontalOptions="CenterAndExpand">
+
+                                            </Image>
+                                        </StackLayout>
+
+                                        <StackLayout 
+                                             Grid.Column="1"
+                                	        VerticalOptions="CenterAndExpand"
+                                            Padding="5">
+                                            <StackLayout>
+                                                <StackLayout
+                                                Orientation="Vertical"
+                                                Padding="5,0">
+                                                    <Label                                        
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Micro"
+                                    	            Text="Día:"
+                                    	            TextColor="DarkGray"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                    <Label                                        
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Medium"
+                                    	            Text="{Binding Dia}"
+                                    	            TextColor="White"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                </StackLayout>                                                
+                                               
+                                                <StackLayout
+                                                    Orientation="Vertical" 
+                                                    Padding="5,0">
+                                                    <Label                                        
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Micro"
+                                    	            Text="Hora:"
+                                    	            TextColor="DarkGray"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                    <Label
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Medium"
+                                    	            Text="{Binding Hora}"
+                                    	            TextColor="White"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                </StackLayout>
+
+                                                <StackLayout
+                                                    Orientation="Vertical" 
+                                                    Padding="5,0">
+                                                    <Label                                        
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Micro"
+                                    	            Text="Tipo:"
+                                    	            TextColor="DarkGray"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                    <Label
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Medium"
+                                    	            Text="{Binding Unidad}"
+                                    	            TextColor="White"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                </StackLayout>
+
+                                                <StackLayout
+                                                    Orientation="Vertical" 
+                                                    Padding="5,0">
+                                                    <Label                                        
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Micro"
+                                    	            Text="Cantidad:"
+                                    	            TextColor="DarkGray"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                    <Label
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Medium"
+                                    	            Text="{Binding Cantidad}"
+                                    	            TextColor="White"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                </StackLayout>
+
+                                                <StackLayout
+                                                    Orientation="Vertical" 
+                                                    Padding="5,0">
+                                                    <Label                                        
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Micro"
+                                    	            Text="Titulo:"
+                                    	            TextColor="DarkGray"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                    <Label
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Medium"
+                                    	            Text="{Binding Titulo}"
+                                    	            TextColor="White"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                </StackLayout>
+
+                                                <StackLayout
+                                                    Orientation="Vertical" 
+                                                    Padding="5,0">
+                                                    <Label                                        
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Micro"
+                                    	            Text="Mensaje:"
+                                    	            TextColor="DarkGray"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                    <Label
+                                    	            FontAttributes="Bold"
+                                    	            FontSize="Medium"
+                                    	            Text="{Binding Mensaje}"
+                                    	            TextColor="White"
+                                                    HorizontalOptions="Start">
+                                                    </Label>
+                                                </StackLayout>
+
+                                                                                           
+                                            </StackLayout>
+                                         </StackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                </RefreshView>
+            </StackLayout>
+        </Grid>
+
+</ContentPage>

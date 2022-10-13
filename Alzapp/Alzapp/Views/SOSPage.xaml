@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alzapp.Views.SOSPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:controls="clr-namespace:Alzapp.NControls"
+         	 NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <magic:GradientView VerticalOptions="FillAndExpand">
+                <magic:CssGradientSource>
+                    <![CDATA[linear-gradient(41deg, rgba(107, 107, 107, 0.04) 0%, rgba(107, 107, 107, 0.04) 8%,rgba(31, 31, 31, 0.04) 8%, rgba(31, 31, 31, 0.04) 100%),linear-gradient(9deg, rgba(228, 228, 228, 0.04) 0%, rgba(228, 228, 228, 0.04) 62%,rgba(54, 54, 54, 0.04) 62%, rgba(54, 54, 54, 0.04) 100%),linear-gradient(124deg, rgba(18, 18, 18, 0.04) 0%, rgba(18, 18, 18, 0.04) 37%,rgba(233, 233, 233, 0.04) 37%, rgba(233, 233, 233, 0.04) 100%),linear-gradient(253deg, rgba(201, 201, 201, 0.04) 0%, rgba(201, 201, 201, 0.04) 55%,rgba(47, 47, 47, 0.04) 55%, rgba(47, 47, 47, 0.04) 100%),linear-gradient(270deg, rgba(172, 172, 172, 0.04) 0%, rgba(172, 172, 172, 0.04) 33%,rgba(26, 26, 26, 0.04) 33%, rgba(26, 26, 26, 0.04) 100%),linear-gradient(64deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 38%,rgba(87, 87, 87, 0.04) 38%, rgba(87, 87, 87, 0.04) 100%),linear-gradient(347deg, rgba(199, 199, 199, 0.04) 0%, rgba(199, 199, 199, 0.04) 69%,rgba(4, 4, 4, 0.04) 69%, rgba(4, 4, 4, 0.04) 100%),linear-gradient(313deg, rgba(36, 36, 36, 0.04) 0%, rgba(36, 36, 36, 0.04) 20%,rgba(91, 91, 91, 0.04) 20%, rgba(91, 91, 91, 0.04) 100%),linear-gradient(90deg, rgb(72,10,10),rgba(228,35,35, 0.77))]]>
+                </magic:CssGradientSource>
+            </magic:GradientView>
+            <StackLayout
+        	BindingContext="{Binding SOS}">
+                <Grid>
+                    <StackLayout
+                        HeightRequest="30">
+                        <Frame CornerRadius="5"
+                                BackgroundColor="#101010"
+                                Padding="0,38,0,0"
+                                Opacity="0.6"
+                                HasShadow="False"
+                                Grid.Column="0"
+                                Grid.Row="0"  >
+
+                        </Frame>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                        HeightRequest="30"
+                        Margin="20,3,20,3">
+                        <ImageButton
+                	        Command="{Binding BackCommand}"
+                            Source="back.png">
+                        </ImageButton>
+                        <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                             HeightRequest="60">
+                            <Label Text="Celular Cuidador"
+                            FontAttributes="Bold"
+                            FontSize="Title" 
+                            TextColor="White"/>
+                        </StackLayout>
+                        <Image Source="alzapp.png"/>
+
+                    </StackLayout>
+                </Grid>
+                <Grid>
+
+                    <StackLayout
+                        Padding="20,60,20,60"
+                        Margin="20,3,20,3"
+                        Orientation="Horizontal"
+                        HorizontalOptions="CenterAndExpand">
+
+
+                        <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Text="Nombre:"
+                        VerticalOptions="Center"
+                        TextColor="White">
+                        </Label>
+
+                        <Entry
+                    	Grid.Column="1"
+                    	Grid.Row="0"
+                    	Placeholder="Nombre del Cuidador..."
+                    	Text="{Binding NombreCuidador}"
+                        Margin="10,0,10,0"
+                        TextColor="White"
+                        PlaceholderColor="DarkGray">
+                        </Entry>
+                    </StackLayout>
+
+                </Grid>
+                <Grid>
+                    
+                    <StackLayout
+                        Padding="20,60,20,60"
+                        Margin="20,3,20,3"
+                        Orientation="Horizontal"
+                        HorizontalOptions="CenterAndExpand">
+
+                        
+                        <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Text="Celular:"
+                        VerticalOptions="Center"
+                        TextColor="White">
+                        </Label>
+                        <Label
+                    	Grid.Column="1"
+                    	Grid.Row="0"
+                    	Text="+54"
+                    	VerticalOptions="Center"
+                        TextColor="White">
+                        </Label>
+                        <Label
+                    	Grid.Column="2"
+                    	Grid.Row="0"
+                    	Text="9"
+                    	VerticalOptions="Center"
+                        TextColor="White">
+                        </Label>
+                        <Entry
+                    	Grid.Column="3"
+                    	Grid.Row="0"
+                    	Keyboard="Numeric"
+                    	Placeholder="Celular del Cuidador..."
+                    	Text="{Binding CelularCuidador}"
+                        Margin="10,0,10,0"
+                        TextColor="White"
+                        PlaceholderColor="DarkGray">
+                        </Entry>
+                    </StackLayout>
+                    
+                </Grid>
+                
+
+                <StackLayout
+                	Orientation="Horizontal"
+                        HorizontalOptions="CenterAndExpand">
+                        <controls:GradientButton
+                        Padding="15,60,15,10"
+                        BorderRadius="40"
+                        GradientStyle="{Binding SaveColor}"
+                        Text="Guardar"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="120"
+                        HeightRequest="50"
+                        Command="{Binding SaveCommand}">
+                        </controls:GradientButton>
+                        <controls:GradientButton
+                        Padding="15,60,15,10"
+                        BorderRadius="40"
+                        GradientStyle="{Binding SaveColor}"
+                        Text="Borrar"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="120"
+                        HeightRequest="50"
+                        Command="{Binding DeleteCommand}">
+                        </controls:GradientButton>
+                    </StackLayout>
+                
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

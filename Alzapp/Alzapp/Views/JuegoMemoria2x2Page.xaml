@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Alzapp.Views.JuegoMemoria2x2Page"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+         	 Title="Juego Memoria">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="Toolbar"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView
+        	BindingContext="{Binding JuegoMemoria2x2}">
+            <StackLayout
+                Padding="10"
+                HorizontalOptions="CenterAndExpand">
+                <RefreshView
+                    IsRefreshing="{Binding IsRefreshing}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton
+                        WidthRequest= "95"
+                        HeightRequest="95"
+                        Source="{Binding Boton0}"
+                        Grid.Column="0"
+                        Grid.Row="0"             
+                        IsEnabled="{Binding IsEnabled0}"
+                        Command="{Binding ComprobarCommand0}">
+
+                    </ImageButton>
+                    <ImageButton
+                        WidthRequest= "95"
+                        HeightRequest="95"
+                        Source="{Binding Boton1}"
+                        Grid.Column="0"
+                        Grid.Row="1"        
+                        IsEnabled="{Binding IsEnabled1}"
+                        Command="{Binding ComprobarCommand1}"
+                        >
+                    </ImageButton>
+                    <ImageButton
+                        WidthRequest= "95"
+                        HeightRequest="95"
+                        Source="{Binding Boton2}"
+                        Grid.Column="1"
+                        Grid.Row="0"            
+                        IsEnabled="{Binding IsEnabled2}"
+                        Command="{Binding ComprobarCommand2}"
+                        >
+                    </ImageButton>
+                    <ImageButton
+                        WidthRequest= "95"
+                        HeightRequest="95"
+                        Source="{Binding Boton3}"
+                        Grid.Column="1"
+                        Grid.Row="1"             
+                        IsEnabled="{Binding IsEnabled3}"
+                        Command="{Binding ComprobarCommand3}"
+                        >
+                    </ImageButton>                   
+                </Grid>
+                </RefreshView>
+                <StackLayout
+                    VerticalOptions="Center">
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Label
+                	        FontSize="Medium"
+                	        HorizontalOptions="Center"
+                	        Text="Aciertos: ">
+                        </Label>
+                        <Label
+                	        FontSize="Medium"
+                	        HorizontalOptions="Center"
+                	        Text="{Binding Aciertos}">
+                        </Label>
+
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Label
+                	        FontSize="Medium"
+                	        HorizontalOptions="Center"
+                	        Text="Puntuacion: ">
+                        </Label>
+                        <Label
+                	        FontSize="Medium"
+                	        HorizontalOptions="Center"
+                	        Text="{Binding Puntuacion}">
+                        </Label>
+
+                    </StackLayout>
+                    <Label
+                	        FontSize="Large"
+                            FontAttributes="Bold"
+                	        HorizontalOptions="Center"
+                	        Text="{Binding Ganador}">
+                    </Label>
+
+
+                </StackLayout>
+                <StackLayout
+                	    Orientation="Horizontal"
+                        VerticalOptions="EndAndExpand">
+                    <Button
+                    	BackgroundColor="DarkRed"
+                    	BorderRadius="23"
+                       	HeightRequest="46"
+                    	HorizontalOptions="FillAndExpand"
+                    	Text="Reiniciar"
+                    	TextColor="White"
+                        IsEnabled="{Binding IsEnabled}"
+                    	Command="{Binding ReiniciarCommand}">
+                    </Button>
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

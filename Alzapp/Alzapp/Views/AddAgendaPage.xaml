@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             x:Class="Alzapp.Views.AddAgendaPage"
+             xmlns:controls="clr-namespace:Alzapp.NControls"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+    <Grid>
+        <magic:GradientView VerticalOptions="FillAndExpand">
+            <magic:CssGradientSource>
+                    <![CDATA[linear-gradient(41deg, rgba(107, 107, 107, 0.04) 0%, rgba(107, 107, 107, 0.04) 8%,rgba(31, 31, 31, 0.04) 8%, rgba(31, 31, 31, 0.04) 100%),linear-gradient(9deg, rgba(228, 228, 228, 0.04) 0%, rgba(228, 228, 228, 0.04) 62%,rgba(54, 54, 54, 0.04) 62%, rgba(54, 54, 54, 0.04) 100%),linear-gradient(124deg, rgba(18, 18, 18, 0.04) 0%, rgba(18, 18, 18, 0.04) 37%,rgba(233, 233, 233, 0.04) 37%, rgba(233, 233, 233, 0.04) 100%),linear-gradient(253deg, rgba(201, 201, 201, 0.04) 0%, rgba(201, 201, 201, 0.04) 55%,rgba(47, 47, 47, 0.04) 55%, rgba(47, 47, 47, 0.04) 100%),linear-gradient(270deg, rgba(172, 172, 172, 0.04) 0%, rgba(172, 172, 172, 0.04) 33%,rgba(26, 26, 26, 0.04) 33%, rgba(26, 26, 26, 0.04) 100%),linear-gradient(64deg, rgba(11, 11, 11, 0.04) 0%, rgba(11, 11, 11, 0.04) 38%,rgba(87, 87, 87, 0.04) 38%, rgba(87, 87, 87, 0.04) 100%),linear-gradient(347deg, rgba(199, 199, 199, 0.04) 0%, rgba(199, 199, 199, 0.04) 69%,rgba(4, 4, 4, 0.04) 69%, rgba(4, 4, 4, 0.04) 100%),linear-gradient(313deg, rgba(36, 36, 36, 0.04) 0%, rgba(36, 36, 36, 0.04) 20%,rgba(91, 91, 91, 0.04) 20%, rgba(91, 91, 91, 0.04) 100%),linear-gradient(90deg, rgb(72,10,10),rgba(228,35,35, 0.77))]]>
+                </magic:CssGradientSource>
+        </magic:GradientView>
+        <StackLayout
+        	BindingContext="{Binding AddAgenda}"
+            Padding="5">
+                <Grid>
+                    <StackLayout
+                        HeightRequest="30">
+                        <Frame CornerRadius="5"
+                                BackgroundColor="#101010"
+                                Padding="0,38,0,0"
+                                Opacity="0.6"
+                                HasShadow="False"
+                                Grid.Column="0"
+                                Grid.Row="0"  >
+
+                        </Frame>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                        HeightRequest="30"
+                        Margin="20,3,20,3">
+                        <ImageButton
+                	        Command="{Binding BackCommand}"
+                            Source="back.png">
+                        </ImageButton>
+                        <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                             HeightRequest="60">
+                            <Label Text="Agregar Actividad"
+                            FontAttributes="Bold"
+                            FontSize="Title" 
+                            TextColor="White"/>
+                        </StackLayout>
+                        <Image Source="alzapp.png"/>
+
+                    </StackLayout>
+                </Grid>
+                <ScrollView        	    
+                    Padding="5">
+                    
+                    <StackLayout
+            	    Padding="10">
+                        
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                    	Grid.Column="0"
+                    	Grid.Row="0"
+                    	Text="Dia"
+                    	VerticalOptions="Center"
+                        TextColor="White">
+                    </Label>
+                    <Picker x:Name="picker"
+                            Grid.Column="1"
+                    	    Grid.Row="0"
+                            Title="Seleccione el dia"
+                            TitleColor="Cyan"
+                            TextColor="White"
+                            SelectedItem="{Binding Dia}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Lunes</x:String>
+                                <x:String>Martes</x:String>
+                                <x:String>Miércoles</x:String>
+                                <x:String>Jueves</x:String>
+                                <x:String>Viernes</x:String>
+                                <x:String>Sábado</x:String>
+                                <x:String>Domingo</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label
+                        TextColor="White"
+                    	Grid.Column="0"
+                    	Grid.Row="1"
+                    	Text="Mañana"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        TextColor="White"
+                    	Grid.Column="1"
+                    	Grid.Row="1"
+                    	Placeholder="Actividad Matutina..."
+                        PlaceholderColor="DarkGray"
+                    	Text="{Binding Manana}">
+                    </Entry>
+                    <Label
+                        TextColor="White"
+                    	Grid.Column="0"
+                    	Grid.Row="2"
+                    	Text="Tarde"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        TextColor="White"
+                    	Grid.Column="1"
+                    	Grid.Row="2"
+                        PlaceholderColor="DarkGray"
+                    	Placeholder="Actividad Vespertina..."
+                    	Text="{Binding Tarde}">
+                    </Entry>
+                    <Label
+                        TextColor="White"
+                    	Grid.Column="0"
+                    	Grid.Row="3"
+                    	Text="Noche"
+                    	VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        TextColor="White"                        
+                    	Grid.Column="1"
+                        PlaceholderColor="DarkGray"
+                    	Grid.Row="3"
+                        Placeholder="Actividad Noctuna..."
+                    	Text="{Binding Noche}">
+                    </Entry>
+                </Grid>
+                
+                    <controls:GradientButton
+                        Padding="15,60,15,10"
+                        BorderRadius="40"
+                        GradientStyle="{Binding SaveColor}"
+                        Text="Guardar"
+                        VerticalOptions="EndAndExpand"
+                        WidthRequest="120"
+                        HeightRequest="50"
+                        Command="{Binding SaveCommand}">
+                    </controls:GradientButton>
+
+                    </StackLayout>
+                </ScrollView>                
+            </StackLayout>
+    </Grid>
+    </ContentPage.Content>
+</ContentPage>
